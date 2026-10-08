@@ -1,12 +1,13 @@
 <?php 
+require 'CourseType.php';
 class Course
 {
 public function __construct(
     protected string $title,
     protected string $subtitle,
     protected string $description,
-    protected array $tags
-
+    protected array $tags,
+    protected CourseType $type = CourseType::FREE,// Programamos que sea de type free,paid
     ){
     
     }
@@ -21,13 +22,13 @@ public function __construct(
 
     public function __toString()
     {
-        $html = "<h1>{$this->title}</h1>";
+        $html = "<h1>{$this->title} - {$this->type->label()}</h1>";
         $html .= "<h2>{$this->subtitle}</h2>";
         $html .= "<p>{$this->description}</p>";
         $html .= "<h3>Tags:</h3>";
         $html .="<ul>";
          foreach ($this->tags as $tag){
-            $html .="<li>{tag}</li>";
+            $html .="<li>{$tag}</li>";
          }    
          $html .="</ul>";
 
