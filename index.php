@@ -1,16 +1,17 @@
 <?php 
 
-require '02_Course.php';
+require __DIR__. '/vendor/autoload.php';
+use App\Course;
+use App\CourseType;
 
 $course = new Course (
     title:'Curso profesional de php y laravel',
     subtitle:'Aprende php y laravel desde 0',
     description:'Lorem elipsium ......................................',
-    tags:['PHP','Laravel','JavaScript']
+    tags:['PHP','Laravel','JavaScript'],
+    type: CourseType::PAID,
 );
 // Luego de un curso contruido podemos actualizarlo
-
-
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +19,7 @@ $course = new Course (
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $course ->title ?></title>
+    <title><?= $course->title ?></title>
 </head>
 <body>
     <?= $course ?>

@@ -1,5 +1,7 @@
 <?php 
-require 'CourseType.php';
+namespace App;                // Es App porque asi lo tengo en el autoload, generalmente va el nombre del proveedor del software
+
+
 class Course
 {
 public function __construct(
@@ -34,11 +36,6 @@ public function __construct(
 
          return $html;
     }
-
-
-
-
-
 
     public function addTag (string $tag):void 
     {
